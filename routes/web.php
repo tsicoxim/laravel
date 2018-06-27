@@ -11,6 +11,8 @@
 |
 */
 
+Route::group(array('before' => 'auth'), function(){
+
 Route::get('/produtos', 'ProdutoController@lista');
 
 Route::get('/produtos/mostra/{id}', 'ProdutoController@mostra')->where('id', '[0-9]+');
@@ -27,7 +29,7 @@ Route::get('/produtos/editar/{id}', 'ProdutoController@editar');
 
 Route::post('/produtos/atualizar/{id}', 'ProdutoController@atualizar');
 
-
+});
 
 Auth::routes();
 
